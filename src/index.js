@@ -39,8 +39,14 @@ async function writeEnvFile(){
 
 writeEnvFile();
 
-
-
+async function app(){
+    console.log("Before calling async writer")
+    await writeEnvFile().then(() => {
+        console.log("File writing may be finished?")
+    })
+    console.log("After calling async writer")
+}
+app();
 
 // console.log("before promise")
 // fs.writeFile(".env", contentToWrite).then(() => {
